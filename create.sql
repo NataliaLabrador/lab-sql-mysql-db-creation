@@ -5,6 +5,8 @@ CREATE DATABASE IF NOT EXISTS lab_mysql;
 USE lab_mysql;
 
 -- Create cars table
+DROP TABLE IF EXISTS cars;
+
 CREATE TABLE cars (
 	id INT NOT NULL AUTO_INCREMENT,
     vin CHAR(17) NOT NULL,
@@ -17,6 +19,8 @@ CREATE TABLE cars (
 
 
 -- Create customers table
+DROP TABLE IF EXISTS customers;
+
 CREATE TABLE customers (
 	id INT NOT NULL AUTO_INCREMENT,
     cust_id INT NOT NULL,
@@ -31,7 +35,13 @@ CREATE TABLE customers (
     PRIMARY KEY (id)
 );
 
+-- Alter customers table
+ALTER TABLE customers
+	MODIFY COLUMN cust_phone VARCHAR(20);
+    
 -- Create salespersons table
+DROP TABLE IF EXISTS salespersons;
+
 CREATE TABLE salespersons (
 	id INT NOT NULL AUTO_INCREMENT,
     staff_id INT NOT NULL,
@@ -41,6 +51,8 @@ CREATE TABLE salespersons (
 );
 
 -- Create invoices table
+DROP TABLE IF EXISTS invoices;
+
 CREATE TABLE invoices (
 	id INT NOT NULL AUTO_INCREMENT,
     invoice_number INT NOT NULL,
@@ -49,13 +61,14 @@ CREATE TABLE invoices (
     customer_id INT NOT NULL,
     salesperson_id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (id)
+    FOREIGN KEY (car_id)
     REFERENCES cars (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (id)
+    FOREIGN KEY (customer_id)
     REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (id)
+    FOREIGN KEY (salesperson_id)
     REFERENCES salespersons (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 

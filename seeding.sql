@@ -4,30 +4,18 @@ USE lab_mysql;
 
 -- Insert data into cars table
 INSERT INTO cars (id, vin, manufacturer, model, car_year, color)
-	VALUES (1, '3K096I98581DHSNUP', 'Volkswagen', ' Tiguan', 2019, 'Blue'),
+	VALUES (1, '3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', 2019, 'Blue'),
 			(2, 'ZM8G7BEUQZ97IH46V', 'Peugeot', 'Rifter', 2019, 'Red'),
             (3, 'RKXVNNIHLVVZOUB4M', 'Ford', 'Fusion', 2018, 'White'),
             (4, 'HKNDGS7CU31E9Z7JW', 'Toyota', 'RAV4', 2018, 'Silver'),
             (5, 'DAM41UDN3CHU2WVF6', 'Volvo', 'V60', 2019, 'Gray'),
             (6, 'DAM41UDN3CHU2WVF6', 'Volvo', 'V60 Cross Country', 2019, 'Gray');
             
--- Activar SAFE UPDATE
-SET SQL_SAFE_UPDATES =0;
-
-UPDATE cars
-	SET model = 'Tiguan'
-    WHERE model = ' Tiguan';
 
 -- Select everything from cars table            
 SELECT *
 FROM cars;
 
--- Change type of date for customers table
-ALTER TABLE customers
-MODIFY COLUMN cust_phone VARCHAR(20);
-
--- Activar SAFE UPDATE
-SET SQL_SAFE_UPDATES =1;
             
 -- Insert data into customers table
 INSERT INTO customers (cust_id, cust_name, cust_phone, cust_email, cust_address, cust_city, cust_state, cust_country, cust_zipcode)

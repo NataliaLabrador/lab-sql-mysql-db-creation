@@ -3,7 +3,7 @@
 USE lab_mysql;
 
 DELETE FROM cars
-	WHERE id = 6;
+	WHERE id = 4;
     
 -- Select everything from cars table            
 SELECT *
